@@ -32,11 +32,31 @@ public class LoginController
 	@PostMapping("/doLogin")
 	public String doLogin(@Valid LoginModel loginModel, BindingResult bindingResult, Model model)
 	{
+		// Variables
+		String trueUsername = loginModel.getUsername();
+		String truePassword = loginModel.getPassword();
+		
 		// Check for validation errors
 		if (bindingResult.hasErrors())
 		{
 			model.addAttribute("title", "Login Form");
 			return "login";
+		}
+		
+		// Login handler that will manually check the username/password
+		// This will be if the login was successful 
+		if (trueUsername.toLowerCase().trim().equals("james") && truePassword.toLowerCase().trim().equals("dylan"))
+		{
+			model.addAttribute("title", "Login Success! Welcome in!");
+			return "loginSuccess";
+		}
+		
+		// This will be if the login had failed
+		// Login handler that will manually check the username/password
+		if (!trueUsername.toLowerCase().trim().equals("james") && !truePassword.toLowerCase().trim().equals("dylan"))
+		{
+			model.addAttribute("title", "Login Failed! Now leave!");
+			return "loginFailed";
 		}
 		
 		// Create some orders
@@ -53,6 +73,20 @@ public class LoginController
 		return "orders";
 	}
 	
+	@GetMapping("/products")
+	public String productsPage(Model model)
+	{
+		model.addAttribute("title", "This is where your products would be displayed");
+		return "products";
+	}
+	
+	@GetMapping("/reviews")
+	public String reviewsPage(Model model)
+	{
+		model.addAttribute("title", "This is where your reviews would be displayed");
+		return "reviews";
+	}
+	
 	@GetMapping("/doRegister")
 	public String registrationPage(Model model)
 	{
@@ -60,5 +94,12 @@ public class LoginController
 		model.addAttribute("title", "Are you truly ready to register?");
 		model.addAttribute("registerModel", new RegisterModel());
 		return "register";
+	}
+	
+	@PostMapping("/registerSuccess")
+	public String successfulRegister(Model model)
+	{	
+		model.addAttribute("title", "You have successfully registered!");
+		return "registerSuccess";
 	}
 }

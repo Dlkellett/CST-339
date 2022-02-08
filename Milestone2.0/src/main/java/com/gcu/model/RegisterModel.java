@@ -22,9 +22,13 @@ public class RegisterModel
 	@Size(min=6, max=24, message="Password must be between 6 and 24 characters.")
 	private String password;
 	
-	@NotNull(message="Age is a required field.")
+	@NotNull(message="Email Address is a required field.")
 	@Size(min=1, max=3, message="Age must be between 1 and 3 characters.")
-	private int age;
+	private String emailAddress;
+	
+	@NotNull(message="Phone Number is a required field.")
+	@Size(min=1, max=3, message="Age must be between 1 and 3 characters.")
+	private String phoneNumber;
 	
 	/**
 	 * @return the firstName
@@ -91,18 +95,34 @@ public class RegisterModel
 	}
 	
 	/**
-	 * @return the age 
+	 * @return the emailAddress 
 	 */
-	public int estAge() 
+	public String getEmailAddress() 
 	{
-		return age;
+		return emailAddress;
 	}
 	
 	/**
-	 * @param age the age to set
+	 * @param emailAddress the emailAddress to set
 	 */
-	public void setAge(int age)
+	
+	public void setEmailAddress(String emailAddress)
 	{
-		this.age = age;
+		this.emailAddress = emailAddress;
+	}
+	/**
+	 * @return the phoneNumber 
+	 */
+	public String getPhoneNumber() 
+	{
+		return phoneNumber;
+	}
+	
+	/**
+	 * @param agphoneNumbere the phoneNumber to set
+	 */
+	public void setPhoneNumber(String phoneNumber)
+	{
+		this.phoneNumber = phoneNumber;
 	}
 }

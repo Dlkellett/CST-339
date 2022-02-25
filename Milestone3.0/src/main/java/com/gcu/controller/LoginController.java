@@ -113,9 +113,13 @@ public class LoginController
 	}
 	
 	@PostMapping("/personalProductPage")
-	public String personalProductPage(Model model)
+	public String personalProductPage(ProductsModel productsModel, Model model)
 	{	
 		model.addAttribute("title", "You have successfully seen your products!");
+		
+		List<ProductsModel> products = new ArrayList<ProductsModel>();
+		products.add(new ProductsModel(productsModel.getJpgImage(), productsModel.getTapeMeasureLength(), productsModel.getTMMU(), productsModel.getTapeWeight(), productsModel.getTapeDescription()));
+		
 		return "personalProductPage";
 	}
 }

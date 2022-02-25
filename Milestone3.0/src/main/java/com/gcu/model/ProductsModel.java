@@ -106,4 +106,18 @@ public class ProductsModel
 	{
 		this.tapeDescription = tapeDescription;
 	}
+	
+	public ProductsModel(String jpgImage, float tapeMeasureLength, String tMMU, float tapeWeight, String tapeDescription)
+	{
+		this.jpgImage = jpgImage;
+		this.tapeMeasureLength = tapeMeasureLength;
+		this.tMMU = tMMU;
+		this.tapeWeight = tapeWeight;
+		this.tapeDescription = tapeDescription;
+	}
+	
+	public ProductsModel()
+	{
+		
+	}
 }

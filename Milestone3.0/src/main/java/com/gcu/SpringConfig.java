@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Configuration;
 //Custom imports 
 import com.gcu.business.OrdersBusinessService;
 import com.gcu.business.OrdersBusinessServiceInterface;
+import com.gcu.business.ProductsBusinessService;
+import com.gcu.business.ProductsBusinessServiceInterface;
 
 @Configuration 
 public class SpringConfig
@@ -18,5 +20,11 @@ public class SpringConfig
 		// Returns defines which java class is invoked 
 		// that implements the OrdersBusinessServiceInterface
 		return new OrdersBusinessService();
+	}
+	
+	@Bean(name="productsBusinessService")
+	public ProductsBusinessServiceInterface getProductsBusiness()
+	{
+		return new ProductsBusinessService();
 	}
 }

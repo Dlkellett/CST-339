@@ -1,12 +1,68 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layouts/defaultTemplate">
-	<head>
-		<meta charset="UTF-8">
-		<title>Thymeleaf Common Fragments</title>
-	</head>
-		<body>
-		<div layout:fragment="content">
-			<h1>These are going to be your personal products!</h1>
-		</div>
-	</body>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CST-339 Milestone 3.0 application</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<table style="width:50%">
+			<thead>
+				<!-- tag is used to group the header content in an HTML table. Use with the tbody and tfoot tags. -->
+				<tr>
+					<th style="text-align:center">Jpg Image</th>
+					<th style="text-align:center">Tape Measure Length</th>
+					<th style="text-align:center">Tape Measure Measurement Unit</th>
+					<th style="text-align:center">Tape Measure Weight</th>
+					<th style="text-align:center">Tape Measure Sescription</th>
+				</tr>
+			</thead>
+			<tbody>
+			<!--
+				<tr th:if="${products.empty()}">
+					<td style="text-align:center" colspan="5"> No Products Available </td>
+				</tr>
+				<tr th:each="product:${products}">
+					<td style="text-align:center">
+						<h5 th:text="${product.jpgImage}">Image</h5>
+					</td>
+					<td style="text-align:center">
+						<h5 th:number="${product.tapeMeasureLength}">14.0</h5>
+					</td>
+					<td style="text-align:center">
+						<h5 th:text="${product.tMMU}">Meters</h5>
+					</td>
+					<td style="text-align:center">
+						<h5 th:number="${product.tapeWeight}">1.0</h5>
+					</td>
+					<td style="text-align:center">
+						<h5 th:text="${product.tapeDescription}">This tape measure is awesome!</h5>
+					</td>
+				</tr>
+				-->
+				<tr th:each="product:${products}">
+					<td>
+						<h5 th:text="${product.jpgImage}">Image</h5>
+					</td>
+					<td>
+						<h5 th:number="${product.tapeMeasureLength}">14.0</h5>
+					</td>
+					<td>
+						<h5 th:text="${product.tMMU}">Meters</h5>
+					</td>
+					<td>
+						<h5 th:number="${product.tapeWeight}">1.0</h5>
+					</td>
+					<td>
+						<h5 th:text="${product.tapeDescription}">This tape measure is awesome!</h5>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
 </html>
